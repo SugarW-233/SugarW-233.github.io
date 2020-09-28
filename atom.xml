@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://SugarW-233.github.io</id>
     <title>SugarW&apos;s blog</title>
-    <updated>2020-09-07T13:52:11.214Z</updated>
+    <updated>2020-09-28T05:08:04.876Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://SugarW-233.github.io"/>
     <link rel="self" href="https://SugarW-233.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://SugarW-233.github.io/post/algorithm-note/</id>
         <link href="https://SugarW-233.github.io/post/algorithm-note/">
         </link>
-        <updated>2020-09-07T13:48:54.000Z</updated>
+        <updated>2020-09-28T05:07:04.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
 <p>本文首次写于复习(备考NOIP2020)，整理算法和模板为主</p>
 </blockquote>
@@ -346,7 +346,7 @@ int main()
 <p>即将 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span> 每次移动一位和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span> 进行匹配，时间复杂度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>N</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(N^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
 <h5 id="如何优化">如何优化</h5>
 <p>对于每次匹配失败，尽可能多的往后移动 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span> 且不会遗漏掉一些情况(个人理解)</p>
-<figure data-type="image" tabindex="1"><img src="C:%5CUsers%5C19412%5CDesktop%5Cphotos%5C%E7%AC%94%E8%AE%B0%5CKMP.png" alt="kmp匹配" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://imgchr.com/i/0EKDqx" alt="kmp匹配" loading="lazy"></figure>
 <p>上图即为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi><mi>M</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">KMP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span> 匹配模式，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mi>e</mi><mi>x</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">Next</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault">e</span><span class="mord mathdefault">x</span><span class="mord mathdefault">t</span></span></span></span> 数组求法即为让 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span> 和自己不断匹配更新</p>
 <p><strong>代码</strong></p>
 <pre><code class="language-cpp">#include &lt;iostream&gt;
@@ -384,7 +384,7 @@ int main()
 }
 </code></pre>
 <h4 id="trie字典树">Trie字典树</h4>
-<figure data-type="image" tabindex="2"><img src="C:%5CUsers%5C19412%5CDesktop%5Cphotos%5C%E7%AC%94%E8%AE%B0%5CTrie.png" alt="一个字典树" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://imgchr.com/i/0EKBs1" alt="一个字典树" loading="lazy"></figure>
 <p><strong>代码</strong></p>
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 
