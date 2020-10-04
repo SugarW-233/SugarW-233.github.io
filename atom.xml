@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://SugarW-233.github.io</id>
     <title>SugarW&apos;s blog</title>
-    <updated>2020-09-28T05:10:14.975Z</updated>
+    <updated>2020-10-04T11:24:13.329Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://SugarW-233.github.io"/>
     <link rel="self" href="https://SugarW-233.github.io/atom.xml"/>
@@ -10,6 +10,232 @@
     <logo>https://SugarW-233.github.io/images/avatar.png</logo>
     <icon>https://SugarW-233.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, SugarW&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[STL容器用法合集]]></title>
+        <id>https://SugarW-233.github.io/post/STL/</id>
+        <link href="https://SugarW-233.github.io/post/STL/">
+        </link>
+        <updated>2020-10-03T11:20:20.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="stl容器">STL容器</h3>
+<blockquote>
+<p>更新中</p>
+</blockquote>
+<h4 id="vector">vector</h4>
+<p><strong>变长数组(数组长度可动态变化)</strong></p>
+<pre><code class="language-cpp">#include &lt;vector&gt;
+
+using namespace std;
+
+const int N = 100010;
+
+int main()
+{
+    vector&lt;int&gt; a;// 最简单的vector初始化方式
+    vector&lt;int&gt; b(N);// 定义一个长度为N的vector
+    vector&lt;int&gt; c(N, m);// 定义一个长度为N的vector且将所有数初始化为m
+    vector&lt;int&gt; a[10];// 定义一个vector数组(10个vector)
+    
+    a.size();// 返回元素个数
+    a.empty();// 判断是否为空(空返回true,非空返回false)
+    ///////↑↑↑所有容器都有，时间复杂度为O(1)/////////
+    a.clear();// 清空
+    a.front();// 返回第一个数
+    a.back();// 返回最后一个数
+    a.push_back(x);// 在最后加入一个数
+    a.pop_back();// 将最后一个数删掉
+    a.begin();// 第0个数 a[0]
+    a.end();// 最后一个数的后一个数 a[a.size()]
+    a[k];// 随机选址()
+}
+</code></pre>
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	vector&lt;int&gt; a;
+    for (int i = 0; i &lt; 10; i++)
+        a.push_back(i);
+    
+   	for (int i = 0; i &lt; a.size(); i++)
+        cout &lt;&lt; a[i] &lt;&lt;　&quot; &quot;;
+    
+    cout &lt;&lt; endl;
+    for (vector&lt;int&gt;::iterator i = a.begin(); i != a.end(); i++)
+        cout &lt;&lt; *i &lt;&lt; &quot; &quot;; 
+    
+    for (auto x : a) 
+        cout &lt;&lt; x &lt;&lt; &quot; &quot;;
+    
+    return 0;
+}
+</code></pre>
+<p><strong>倍增思想</strong></p>
+<p>系统为某一程序分配空间时，所需时间与空间大小无关，与申请次数有关</p>
+<p>​							↓变长数组尽量减少申请空间次数↓</p>
+<p>每一次当数组长度不够的时候，我们就把数组长度乘以2(然后把之前的元素copy过来)</p>
+<p>插入元素的复杂度大概为O(1)</p>
+<h4 id="pair">pair</h4>
+<p><strong>二元组</strong></p>
+<p>一般用来储存具有两个属性的东西</p>
+<p>排序时以first为第一关键字，以second为第二关键字(字典序)</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	pair&lt;int, string&gt; p; // 定义一个pair,两个元素类型任意
+    
+    p.first// 第一个元素
+    p.second// 第二个元素
+        
+    p = make_pair{10, &quot;abc&quot;}// 构造一个pair
+    p = {10, &quot;abc&quot;}// 构造一个pair(C艹11)
+    
+    pair&lt;int, pair&lt;int, int&gt;&gt; // 用pair存储三个元素
+}
+</code></pre>
+<h4 id="string">string</h4>
+<p><strong>字符串</strong></p>
+<p>C艹打包的字符串(下标从0开始)</p>
+<pre><code class="language-cpp">#include &lt;cstdio&gt;
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	string s;// 定义
+    
+    s.size();// 字母个数
+    s.length(); // 和↑↑↑一样  
+    s.empty();// 判断是否为空
+    s.clear();// 清空
+    
+    string a = &quot;apple&quot;;
+    a += &quot;pen&quot;;// 字符串加
+    
+    a.substr();// a的子串(不完整)
+    a.substr(5, 3);// a下标从5开始,长度为的子串(&quot;pen&quot;)
+    
+    printf(&quot;%s&quot;, s.c_str());// c_str()返回字符串的起始地址
+}
+</code></pre>
+<h4 id="queue">queue</h4>
+<p>队列</p>
+<pre><code class="language-cpp">#include &lt;queue&gt;
+
+using namespace std;
+
+int main()
+{
+    queue&lt;int&gt; q;// 定义一个队列
+    
+    q.push(x);// 向队尾加入一个元素x
+    q.pop();// 弹出队头元素
+    q.front();// 返回队头元素
+    q.back();// 返回队尾元素
+   	q.size();// 返回队列元素个数
+    q.empty();// 判断队列是否为空
+    
+    // [注]：stl::queue没有.clear()
+    //      底下的priority_queue, stack啥的也没有
+    q = queue&lt;int&gt;();// 清空队列
+}
+</code></pre>
+<h4 id="priority_quque">priority_quque</h4>
+<p><strong>优先队列(堆，默认大根堆)</strong></p>
+<pre><code class="language-cpp">#include &lt;queue&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main()
+{
+    priority_queue&lt;int&gt; heap;// 定义一个大根堆
+    priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; h;// 定义一个小根堆
+    
+    h.push(x); // 插入一个元素x
+    h.top(); // 返回堆顶元素
+    h.pop(); // 弹出堆顶元素
+}
+</code></pre>
+<h4 id="stack">stack</h4>
+<p><strong>栈</strong></p>
+<pre><code class="language-cpp">#include &lt;stack&gt;
+
+using namespace std;
+
+int main()
+{
+	stack&lt;int&gt; stk;// 定义一个栈
+    
+    stk.push(x);// 向栈顶插入一个元素x
+    stk.pop();// 弹出栈顶元素
+    stk.top()// 返回栈顶元素
+   	stk.size();
+    stk.empty();
+}
+</code></pre>
+<h4 id="deque">deque</h4>
+<p><strong>双端队列(加强版vector,但效率较低)</strong></p>
+<pre><code class="language-cpp">#include &lt;deque&gt;
+
+using namespace std;
+
+int main()
+{
+	deque&lt;int&gt; dq;
+    
+    /////↓↓↓底下操作和vector差不多注释懒得写了/////
+    dq.size();
+    dq.empty();
+    dq.clear(); // 有的
+    dq.front();
+    dq.back();
+    dq.push_back();
+    dq.pop_back();// 在队尾添加/弹出一个元素
+    dq.push_front();
+    dq.pop_front();// 在队头添加/弹出一个元素
+    dq.begin();
+    dq.end();
+    dq[k];// 支持随机选址
+}
+</code></pre>
+<h4 id="setmultiset">set,multiset</h4>
+<p><strong>基于平衡二叉树(红黑树)，动态维护有序序列</strong></p>
+<pre><code class="language-cpp">#include &lt;set&gt;
+
+using namespace std;
+
+int main()
+{
+   set&lt;int&gt; s; // 定义一个set,无重复元素
+   multiset&lt;int&gt; ms;// 定义一个multiset,有重复元素
+   
+  	///↓↓↓以set为例///
+   s.size();
+   s.empty();
+   s.clear();
+   s.insert(x);// 插入一个数
+   s.find(y);// 查找一个数
+   s.cont(x);// 返回一个数的个数(在set中自然只有0和1，在multiset则不然)
+   
+   s.erase(x);// 若输入一个数，则删除所有等于这个数的节点 O(k + logN)
+   s.erase();// 若输入一个迭代器，则删除这个迭代器
+   s.lower_bound(x)；// 返回大于等于x的最小的数的迭代器 
+   s.upper_bound(x); // 返回大于x的最小的数的迭代器
+}
+</code></pre>
+<h4 id="map-multimap">map, multimap</h4>
+<h4 id="unordered_set-unordered_map-unordered-multiset-unordered_multimap">unordered_set, unordered_map, unordered multiset, unordered_multimap</h4>
+<h4 id="bitset">bitset</h4>
+<p>在写了在写了</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[算法笔记(合集，更新中)]]></title>
         <id>https://SugarW-233.github.io/post/algorithm-note/</id>

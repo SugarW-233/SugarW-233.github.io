@@ -9,7 +9,7 @@
 <meta name="description" content="貧人のGithubブログ">
 <meta name="theme-color" content="#495057">
 <title>SugarW&#39;s blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1601269811667">
+<link rel="shortcut icon" href="/favicon.ico?v=1601810625746">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -175,7 +175,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">2</span>
+        <span class="site-item-stat-count">3</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -319,6 +319,80 @@
         
         <div class="post-button text-center">
           <a class="btn language" data-lan="read-more" href="https://SugarW-233.github.io/post/algorithm-note/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+        <footer class="post-footer">
+          <div class="post-eof"></div>
+        </footer>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://SugarW-233.github.io/post/STL/">
+      STL容器用法合集
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2020-10-03 19:20:20">2020-10-03</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>6<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>1174<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+  </div>
+</section>
+      <div class="post-body">
+        
+        
+          
+            <!-- 没有手动摘要切开启了自动摘要,则根据配置筛除摘要内容 -->
+            
+            
+              
+              
+              
+            
+              
+              
+              
+            
+              
+              
+              
+            
+            
+              <p><h3 id="stl容器">STL容器</h3>
+<blockquote>
+<p>更新中</p>
+
+                
+              <p>
+            
+          
+        
+        
+        <div class="post-button text-center">
+          <a class="btn language" data-lan="read-more" href="https://SugarW-233.github.io/post/STL/" rel="contents">
             阅读全文 »
           </a>
         </div>
@@ -1220,6 +1294,229 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://SugarW-233.github.io/post/STL/"" data-c="
+          &lt;h3 id=&#34;stl容器&#34;&gt;STL容器&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;更新中&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;vector&#34;&gt;vector&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;变长数组(数组长度可动态变化)&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;vector&amp;gt;
+
+using namespace std;
+
+const int N = 100010;
+
+int main()
+{
+    vector&amp;lt;int&amp;gt; a;// 最简单的vector初始化方式
+    vector&amp;lt;int&amp;gt; b(N);// 定义一个长度为N的vector
+    vector&amp;lt;int&amp;gt; c(N, m);// 定义一个长度为N的vector且将所有数初始化为m
+    vector&amp;lt;int&amp;gt; a[10];// 定义一个vector数组(10个vector)
+    
+    a.size();// 返回元素个数
+    a.empty();// 判断是否为空(空返回true,非空返回false)
+    ///////↑↑↑所有容器都有，时间复杂度为O(1)/////////
+    a.clear();// 清空
+    a.front();// 返回第一个数
+    a.back();// 返回最后一个数
+    a.push_back(x);// 在最后加入一个数
+    a.pop_back();// 将最后一个数删掉
+    a.begin();// 第0个数 a[0]
+    a.end();// 最后一个数的后一个数 a[a.size()]
+    a[k];// 随机选址()
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;vector&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+
+using namespace std;
+
+int main()
+{
+	vector&amp;lt;int&amp;gt; a;
+    for (int i = 0; i &amp;lt; 10; i++)
+        a.push_back(i);
+    
+   	for (int i = 0; i &amp;lt; a.size(); i++)
+        cout &amp;lt;&amp;lt; a[i] &amp;lt;&amp;lt;　&amp;quot; &amp;quot;;
+    
+    cout &amp;lt;&amp;lt; endl;
+    for (vector&amp;lt;int&amp;gt;::iterator i = a.begin(); i != a.end(); i++)
+        cout &amp;lt;&amp;lt; *i &amp;lt;&amp;lt; &amp;quot; &amp;quot;; 
+    
+    for (auto x : a) 
+        cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+    
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;倍增思想&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;系统为某一程序分配空间时，所需时间与空间大小无关，与申请次数有关&lt;/p&gt;
+&lt;p&gt;​							↓变长数组尽量减少申请空间次数↓&lt;/p&gt;
+&lt;p&gt;每一次当数组长度不够的时候，我们就把数组长度乘以2(然后把之前的元素copy过来)&lt;/p&gt;
+&lt;p&gt;插入元素的复杂度大概为O(1)&lt;/p&gt;
+&lt;h4 id=&#34;pair&#34;&gt;pair&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;二元组&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一般用来储存具有两个属性的东西&lt;/p&gt;
+&lt;p&gt;排序时以first为第一关键字，以second为第二关键字(字典序)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;iostream&amp;gt;
+
+using namespace std;
+
+int main()
+{
+	pair&amp;lt;int, string&amp;gt; p; // 定义一个pair,两个元素类型任意
+    
+    p.first// 第一个元素
+    p.second// 第二个元素
+        
+    p = make_pair{10, &amp;quot;abc&amp;quot;}// 构造一个pair
+    p = {10, &amp;quot;abc&amp;quot;}// 构造一个pair(C艹11)
+    
+    pair&amp;lt;int, pair&amp;lt;int, int&amp;gt;&amp;gt; // 用pair存储三个元素
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;string&#34;&gt;string&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;字符串&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;C艹打包的字符串(下标从0开始)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;cstdio&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+
+using namespace std;
+
+int main()
+{
+	string s;// 定义
+    
+    s.size();// 字母个数
+    s.length(); // 和↑↑↑一样  
+    s.empty();// 判断是否为空
+    s.clear();// 清空
+    
+    string a = &amp;quot;apple&amp;quot;;
+    a += &amp;quot;pen&amp;quot;;// 字符串加
+    
+    a.substr();// a的子串(不完整)
+    a.substr(5, 3);// a下标从5开始,长度为的子串(&amp;quot;pen&amp;quot;)
+    
+    printf(&amp;quot;%s&amp;quot;, s.c_str());// c_str()返回字符串的起始地址
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;queue&#34;&gt;queue&lt;/h4&gt;
+&lt;p&gt;队列&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;queue&amp;gt;
+
+using namespace std;
+
+int main()
+{
+    queue&amp;lt;int&amp;gt; q;// 定义一个队列
+    
+    q.push(x);// 向队尾加入一个元素x
+    q.pop();// 弹出队头元素
+    q.front();// 返回队头元素
+    q.back();// 返回队尾元素
+   	q.size();// 返回队列元素个数
+    q.empty();// 判断队列是否为空
+    
+    // [注]：stl::queue没有.clear()
+    //      底下的priority_queue, stack啥的也没有
+    q = queue&amp;lt;int&amp;gt;();// 清空队列
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;priority_quque&#34;&gt;priority_quque&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;优先队列(堆，默认大根堆)&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;queue&amp;gt;
+#include &amp;lt;vector&amp;gt;
+
+using namespace std;
+
+int main()
+{
+    priority_queue&amp;lt;int&amp;gt; heap;// 定义一个大根堆
+    priority_queue&amp;lt;int, vector&amp;lt;int&amp;gt;, greater&amp;lt;int&amp;gt;&amp;gt; h;// 定义一个小根堆
+    
+    h.push(x); // 插入一个元素x
+    h.top(); // 返回堆顶元素
+    h.pop(); // 弹出堆顶元素
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;stack&#34;&gt;stack&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;栈&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;stack&amp;gt;
+
+using namespace std;
+
+int main()
+{
+	stack&amp;lt;int&amp;gt; stk;// 定义一个栈
+    
+    stk.push(x);// 向栈顶插入一个元素x
+    stk.pop();// 弹出栈顶元素
+    stk.top()// 返回栈顶元素
+   	stk.size();
+    stk.empty();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;deque&#34;&gt;deque&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;双端队列(加强版vector,但效率较低)&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;deque&amp;gt;
+
+using namespace std;
+
+int main()
+{
+	deque&amp;lt;int&amp;gt; dq;
+    
+    /////↓↓↓底下操作和vector差不多注释懒得写了/////
+    dq.size();
+    dq.empty();
+    dq.clear(); // 有的
+    dq.front();
+    dq.back();
+    dq.push_back();
+    dq.pop_back();// 在队尾添加/弹出一个元素
+    dq.push_front();
+    dq.pop_front();// 在队头添加/弹出一个元素
+    dq.begin();
+    dq.end();
+    dq[k];// 支持随机选址
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;setmultiset&#34;&gt;set,multiset&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;基于平衡二叉树(红黑树)，动态维护有序序列&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;set&amp;gt;
+
+using namespace std;
+
+int main()
+{
+   set&amp;lt;int&amp;gt; s; // 定义一个set,无重复元素
+   multiset&amp;lt;int&amp;gt; ms;// 定义一个multiset,有重复元素
+   
+  	///↓↓↓以set为例///
+   s.size();
+   s.empty();
+   s.clear();
+   s.insert(x);// 插入一个数
+   s.find(y);// 查找一个数
+   s.cont(x);// 返回一个数的个数(在set中自然只有0和1，在multiset则不然)
+   
+   s.erase(x);// 若输入一个数，则删除所有等于这个数的节点 O(k + logN)
+   s.erase();// 若输入一个迭代器，则删除这个迭代器
+   s.lower_bound(x)；// 返回大于等于x的最小的数的迭代器 
+   s.upper_bound(x); // 返回大于x的最小的数的迭代器
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;map-multimap&#34;&gt;map, multimap&lt;/h4&gt;
+&lt;h4 id=&#34;unordered_set-unordered_map-unordered-multiset-unordered_multimap&#34;&gt;unordered_set, unordered_map, unordered multiset, unordered_multimap&lt;/h4&gt;
+&lt;h4 id=&#34;bitset&#34;&gt;bitset&lt;/h4&gt;
+&lt;p&gt;在写了在写了&lt;/p&gt;
+">STL容器用法合集</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://SugarW-233.github.io/post/algorithm-note/"" data-c="
